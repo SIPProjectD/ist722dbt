@@ -16,6 +16,7 @@ with
     )
 select
     a.authorkey,
+    a.au_id,
     a.titlekey,
     t.publisherskey,
     a.title_id,
