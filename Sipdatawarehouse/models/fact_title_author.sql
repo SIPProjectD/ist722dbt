@@ -24,6 +24,9 @@ select
     t.advance,
     t.royalty,
     t.ytd_sales,
+    t.type, 
+    t.notes,
+    t.royalty 
     (t.price * t.ytd_sales) as totalsalesrevenue,
     ((a.royaltyper / 100) * t.price * t.ytd_sales) as effectiveroyaltyearned_row,
     ((t.royalty * t.ytd_sales / 100) - t.advance) as netearnings_row,

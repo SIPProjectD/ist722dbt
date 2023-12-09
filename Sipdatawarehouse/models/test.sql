@@ -1,1 +1,0 @@
-select * from {{ ref('dim_authors') }} d join title_author a on d.authorid = a.authorid
