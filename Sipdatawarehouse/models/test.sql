@@ -1,1 +1,1 @@
-select * from fact_title_author f join dim_authors d on f.titlekey = d.titlekey
+select * from {{ ref('dim_authors') }} d join title_author a on d.authorid = a.authorid
