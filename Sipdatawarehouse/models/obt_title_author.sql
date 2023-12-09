@@ -6,6 +6,6 @@ with
 
 select d_authors.*, d_date.*, d_publishers.*, f.*
 from f_title_author as f
-left join d_authors on f.au_id = d_authors.au_id
+left join d_authors on f.authorkey = d_authors.authorkey
 left join d_publishers on f.publisherskey = d_publishers.publisherskey
 left join d_date on f.pubdatekey = d_date.datekey
