@@ -5,7 +5,9 @@ with
     d_publishers as (select * from {{ ref("dim_publishers") }})
 
 select
-
+    d_authors.*,
+    d_date.*,
+    d_publishers.*,
     f.totalsalesrevenue,
     f.effectiveroyaltyearned,
     f.netearnings
