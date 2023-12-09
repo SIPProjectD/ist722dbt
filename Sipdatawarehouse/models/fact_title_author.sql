@@ -14,9 +14,8 @@ with
             *
         from {{ source("pubs", "Titles") }}
     )
-
 select
-    distinct a.authorkey,
+    a.authorkey,
     a.titlekey,
     t.publisherskey,
     a.title_id,
@@ -25,10 +24,9 @@ select
     t.advance,
     t.royalty,
     t.ytd_sales,
-    (t.price * t.ytd_sales) as totalsalesrevenue_row,
+    (t.price * t.ytd_sales) as totalsalesrevenue,
     ((a.royaltyper / 100) * t.price * t.ytd_sales) as effectiveroyaltyearned_row,
     ((t.royalty * t.ytd_sales / 100) - t.advance) as netearnings_row,
-    t.pubdatekey,
-    a.au_ord
+    t.pubdatekey
 from stg_title_author a
-join stg_title t on a.title_id = t.title_id
+join stg_title t on a.titlekey = t.titlekey

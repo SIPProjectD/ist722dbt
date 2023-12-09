@@ -1,0 +1,1 @@
+select * from fact_title_author f join dim_authors d on f.titlekey = d.titlekey
