@@ -16,7 +16,7 @@ with
     )
 
 select
-    a.authorkey,
+    distinct a.authorkey,
     a.titlekey,
     t.publisherskey,
     a.title_id,
