@@ -21,14 +21,12 @@ select
     a.title_id,
     a.royaltyper,
     t.price,
-    t.advance,
-    t.royalty,
     t.ytd_sales,
     t.type,
-    t.notes,
+    t.royalty,
     (t.price * t.ytd_sales) as totalsalesrevenue,
-    ((a.royaltyper / 100) * t.price * t.ytd_sales) as effectiveroyaltyearned_row,
-    ((t.royalty * t.ytd_sales / 100) - t.advance) as netearnings_row,
+    ((a.royaltyper / 100) * t.price * t.ytd_sales) as effectiveroyaltyearned,
+    ((t.royalty * t.ytd_sales / 100) - t.advance) as netearnings,
     t.pubdatekey
 from stg_title_author a
 join stg_title t on a.titlekey = t.titlekey
