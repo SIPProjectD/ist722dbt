@@ -9,5 +9,4 @@ select
 from f_title as f
 left join d_authors on f.authorkey = d_authors.authorkey
 left join d_date on f.pubdatekey = d_date.datekey
-
 left join d_publishers on f.publisherskey = d_publishers.publisherskey
