@@ -15,7 +15,6 @@ with
         from {{ source("pubs", "Titles") }}
     )
 select
-    a.authorkey,
     a.titlekey,
     t.publisherskey,
     a.title_id,
