@@ -36,7 +36,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
-  pubs:
+  pubs_database:
     +materialized: table
-    database: pubs
-    +schema: dbt_sipprojectd
+    example:
+      +schema: dbt_sipprojectd
