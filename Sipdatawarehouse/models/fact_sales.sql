@@ -11,12 +11,16 @@ with
             payterms
         from {{ source("pubs", "Sales") }}
     ),
-    stg_titles_more as (select title_id, price from {{ source("pubs", "Titles") }}),
+    stg_titles_more as (select title_id, price, pub_id,
+    {{ dbt_utils.generate_surrogate_key(["pub_id"]) }} as publisherkey
+    from 
+    {{ source("pubs", "Titles") }}),
     stg_discounts as (select * from {{ source("pubs", "Discounts") }})
 select
     s.orderid,
     s.titlekey,
     s.storekey,
+    t.publisherkey,
     s.ord_date,
     s.payterms,
     s.quantity,
